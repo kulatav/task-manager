@@ -67,28 +67,32 @@ def main():
         print("3. Complete Task")
         print("4. Delete Task")
         print("5. Exit")
-        choice = input("Enter choice (1-5): ")
+        try:
+            choice = input("Enter choice (1-5): ")
 
-        if choice == '1':
-            description = input("Enter task description: ")
-            priority = input("Enter priority (low/medium/high): ").lower()
-            if priority not in ['low', 'medium', 'high']:
-                print("Invalid priority. Use low, medium, or high.")
-                continue
-            add_task(tasks, description, priority)
-        elif choice == '2':
-            view_tasks(tasks)
-        elif choice == '3':
-            task_id = int(input("Enter task ID to complete: "))
-            complete_task(tasks, task_id)
-        elif choice == '4':
-            task_id = int(input("Enter task ID to delete: "))
-            delete_task(tasks, task_id)
-        elif choice == '5':
-            print("Exiting Task Manager.")
-            break
-        else:
-            print("Invalid choice. Try again.")
+            if choice == '1':
+                description = input("Enter task description: ")
+                priority = input("Enter priority (low/medium/high): ").lower()
+                if priority not in ['low', 'medium', 'high']:
+                    print("Invalid priority. Use low, medium, or high.")
+                    continue
+                add_task(tasks, description, priority)
+            elif choice == '2':
+                view_tasks(tasks)
+            elif choice == '3':
+                task_id = int(input("Enter task ID to complete: "))
+                complete_task(tasks, task_id)
+            elif choice == '4':
+                task_id = int(input("Enter task ID to delete: "))
+                delete_task(tasks, task_id)
+            elif choice == '5':
+                print("Exiting Task Manager.")
+                break
+            else:
+                print("Invalid choice. Try again.")
+        except ValueError:
+            print("Invalid ID. Please enter a number.")
+            continue
 
 if __name__ == "__main__":
     main()
