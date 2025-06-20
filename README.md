@@ -14,3 +14,6 @@ A simple command-line task manager built with Python. Allows users to add, view,
    ```bash
    git clone https://github.com/kulatav/task-manager.git
    cd task-manager
+
+## Demo
+![Task Manager Demo](task-manager-demo.gif)
